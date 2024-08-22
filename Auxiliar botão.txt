@@ -1,0 +1,34 @@
+----------------------------comandos botoes--------------------------------------------------- 
+text: Define o texto exibido no botão.
+
+command: Especifica a função a ser chamada quando o botão é clicado. Não inclua parênteses ao atribuir a função.
+
+width: Define a largura do botão em número de caracteres. Se você quer especificar em pixels, pode usar o parâmetro padx em combinação com width.
+
+height: Define a altura do botão em número de linhas de texto.
+
+bg ou background: Define a cor de fundo do botão. Por exemplo, bg='blue'.
+
+fg ou foreground: Define a cor do texto do botão. Por exemplo, fg='white'.
+
+font: Define a fonte do texto do botão. Por exemplo, font=('Arial', 12).
+
+padx: Define o preenchimento horizontal dentro do botão (em pixels).
+
+pady: Define o preenchimento vertical dentro do botão (em pixels).
+
+relief: Define o estilo da borda do botão. Pode ser 'flat', 'raised', 'sunken', 'groove', ou 'ridge'.
+
+borderwidth ou bd: Define a largura da borda do botão. O valor padrão é 2 pixels.
+
+highlightbackground: Define a cor da borda de foco quando o botão não está em foco.
+
+highlightcolor: Define a cor da borda de foco quando o botão está em foco.
+
+state: Define o estado do botão. Pode ser 'normal', 'active', ou 'disabled'. No estado 'disabled', o botão fica inativo e não pode ser clicado.
+
+image: Permite que você defina uma imagem para o botão, em vez de texto. Você deve criar um objeto PhotoImage ou BitmapImage e passá-lo para este parâmetro.
+
+compound: Define como o texto e a imagem são exibidos em relação um ao outro. Pode ser 'left', 'right', 'top', 'bottom', ou 'center'.
+
+anchor: Define a posição do texto dentro do botão. Pode ser 'n' (norte), 'e' (leste), 's' (sul), 'w' (oeste), ou 'center'.

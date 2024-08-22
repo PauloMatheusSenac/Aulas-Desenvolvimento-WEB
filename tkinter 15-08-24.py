@@ -18,30 +18,30 @@
 
 
 
-from tkinter import *
-from tkinter import ttk
+# from tkinter import *
+# from tkinter import ttk
 
-def contar():
-    global contador
-    contador += 1
-    contador_label.config(text=f"Você clicou {contador} vezes")
+# def contar():
+#     global contador
+#     contador += 1
+#     contador_label.config(text=f"Você clicou {contador} vezes")
 
-contador = 0
-root = Tk()
-frm = ttk.Frame(root, padding=40)
-frm.grid()
+# contador = 0
+# root = Tk()
+# frm = ttk.Frame(root, padding=40)
+# frm.grid()
 
-ttk.Label(frm, text="Clique no botão", font=("Arial", 50)).grid(column=0, row=0)
-
-
-contador_label = ttk.Label(frm, text=f"Você clicou {contador} vezes")
-contador_label.grid(column=0, row=2)
+# ttk.Label(frm, text="Clique no botão", font=("Arial", 50)).grid(column=0, row=0)
 
 
-botao = ttk.Button(frm, text="Clique aqui", command=contar)
-botao.grid(column=0, row=1)
+# contador_label = ttk.Label(frm, text=f"Você clicou {contador} vezes")
+# contador_label.grid(column=0, row=2)
 
-root.mainloop()
+
+# botao = ttk.Button(frm, text="Clique aqui", command=contar)
+# botao.grid(column=0, row=1)
+
+# root.mainloop()
 
 
 # import tkinter as tk
