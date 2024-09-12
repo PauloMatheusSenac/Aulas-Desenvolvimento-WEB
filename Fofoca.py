@@ -234,3 +234,105 @@ janela.mainloop()
 #     pontos INT DEFAULT 0,
 #     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 # );
+
+
+#-----------------------------------------------------------------------------------------#
+-- Inserir um usuário admin
+INSERT INTO usuarios (usuario, senha, tipo_acesso) 
+VALUES ('admin_user', 'admin_password', 'admin');
+
+-- Inserir um cliente
+INSERT INTO usuarios (usuario, senha, tipo_acesso) 
+VALUES ('client_user', 'client_password', 'cliente');
+
+-- Inserir um famoso
+INSERT INTO usuarios (usuario, senha, tipo_acesso) 
+VALUES ('famous_person', 'famous_password', 'famoso');
+#-----------------------------------------------------------------------------------------#
+def adicionar_usuario(usuario, senha, tipo_acesso):
+    conexao = conectar_banco()
+    if conexao:
+        cursor = conexao.cursor()
+        query = "INSERT INTO usuarios (usuario, senha, tipo_acesso) VALUES (%s, %s, %s)"
+        cursor.execute(query, (usuario, senha, tipo_acesso))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+# Exemplos de uso
+adicionar_usuario('admin_user', 'admin_password', 'admin')
+adicionar_usuario('client_user', 'client_password', 'cliente')
+adicionar_usuario('famous_person', 'famous_password', 'famoso')
+#----------------------------------------------------------------------------------------#
+def adicionar_fofoca(texto, img1=None, img2=None, img3=None):
+    conexao = conectar_banco()
+    if conexao:
+        cursor = conexao.cursor()
+        query = "INSERT INTO fofocas (texto, imagem1, imagem2, imagem3) VALUES (%s, %s, %s, %s)"
+        cursor.execute(query, (texto, img1, img2, img3))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+# Suponha que imagem1, imagem2, imagem3 são variáveis contendo dados binários de imagens.
+adicionar_fofoca('Texto da fofoca 1', imagem_1, imagem_2, imagem_3)
+#----------------------------------------------------------------------------------------#
+-- Inserir um reporte de fofoca
+INSERT INTO reportar_fofocas (usuario_id, fofoca_id, motivo) 
+VALUES (1, 1, 'Motivo do reporte');
+#----------------------------------------------------------------------------------------#
+def reportar_fofoca(usuario_id, fofoca_id, motivo):
+    conexao = conectar_banco()
+    if conexao:
+        cursor = conexao.cursor()
+        query = "INSERT INTO reportar_fofocas (usuario_id, fofoca_id, motivo) VALUES (%s, %s, %s)"
+        cursor.execute(query, (usuario_id, fofoca_id, motivo))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+# Exemplo de uso
+reportar_fofoca(1, 1, 'Motivo do reporte')
+#----------------------------------------------------------------------------------------#
+-- Consultar todas as fofocas
+SELECT * FROM fofocas;
+#----------------------------------------------------------------------------------------#
+def consultar_fofocas():
+    conexao = conectar_banco()
+    if conexao:
+        cursor = conexao.cursor()
+        query = "SELECT id, texto FROM fofocas"
+        cursor.execute(query)
+        fofocas = cursor.fetchall()
+        for fofoca in fofocas:
+            print(f"ID: {fofoca[0]}, Texto: {fofoca[1]}")
+        cursor.close()
+        conexao.close()
+
+# Exemplo de uso
+consultar_fofocas()
+#----------------------------------------------------------------------------------------#
+-- Consultar todos os usuários
+SELECT * FROM usuarios;
+#----------------------------------------------------------------------------------------#
+def consultar_usuarios():
+    conexao = conectar_banco()
+    if conexao:
+        cursor = conexao.cursor()
+        query = "SELECT id, usuario, tipo_acesso FROM usuarios"
+        cursor.execute(query)
+        usuarios = cursor.fetchall()
+        for usuario in usuarios:
+            print(f"ID: {usuario[0]}, Usuário: {usuario[1]}, Tipo de Acesso: {usuario[2]}")
+        cursor.close()
+        conexao.close()
+
+# Exemplo de uso
+consultar_usuarios()
+#----------------------------------------------------------------------------------------#
+
+
+
+
+
+
